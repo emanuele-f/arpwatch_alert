@@ -1,0 +1,17 @@
+[Unit]
+Description=Arpwatch desktop notifications on %I
+Conflicts=arpwatch@%i.service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/emanuele/src/arpwatch_alert
+ExecStartPre=/usr/bin/mkfifo /run/arpwatch_%I_fifo
+Environment="PYTHONUNBUFFERED=1"
+Environment="DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus"
+Environment="DISPLAY=:0"
+ExecStart=/bin/bash arpwatch_alert_start.sh %I emanuele /run/arpwatch_%I_fifo
+ExecStopPost=/usr/bin/rm /run/arpwatch_%I_fifo
+
+[Install]
+WantedBy=graphical.target
