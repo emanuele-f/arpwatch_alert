@@ -86,7 +86,7 @@ if __name__ == "__main__":
  <descr>: the alert description
 
 example:
- sudo /usr/bin/arpwatch -f /var/lib/arpwatch/wlan0.dat -i wlan0 -d | ./arpwatch_alert.py -c notify-send -a '-u critical "<title>" "<descr>"' - ''') -
+ sudo /usr/bin/arpwatch -f /var/lib/arpwatch/wlan0.dat -i wlan0 -d | ./arpwatch_alert.py -c notify-send -a '-u critical "<title>" "<descr>"' - ''')
 
   parser.add_argument("--command", "-c", dest = "cmd",
     help="Command to execute to generate the alert", type=str)

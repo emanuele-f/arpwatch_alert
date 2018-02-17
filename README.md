@@ -39,7 +39,7 @@ The following substitutions will be performed in the alert-args parameter:
 Example usage to send a desktop notifications:
 
 ```
-sudo /usr/bin/arpwatch -f /var/lib/arpwatch/wlan0.dat -i wlan0 -d | ./arpwatch_alert.py -c notify-send -a '-u critical "<title>" "<descr>"' - ''') -
+sudo /usr/bin/arpwatch -f /var/lib/arpwatch/wlan0.dat -i wlan0 -d | ./arpwatch_alert.py -c notify-send -a '-u critical "<title>" "<descr>"' -
 ```
 
 ## Running as a service at boot
@@ -56,6 +56,7 @@ directory and enabled:
 
 ```
 sudo cp arpwatch_alert@.service /usr/lib/systemd/system
+sudo systemctl daemon-reload
 sudo systemctl enable arpwatch_alert@wlan0
 sudo systemctl start arpwatch_alert@wlan0
 ```
