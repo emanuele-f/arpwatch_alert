@@ -5,6 +5,8 @@ Generate (desktop) arpwatch alerts by parsing arpwatch output.
 A generic script can be run with custom parameters after arpwatch reports issues
 in ethernet/ip address pairings.
 
+![notification_screenshot](https://raw.githubusercontent.com/emanuele-f/arpwatch_alert/master/notification_screenshot.png)
+
 The arpwatch system tool should be installed in order to run this.
 
 ## Command line arguments
