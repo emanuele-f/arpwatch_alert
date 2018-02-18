@@ -47,7 +47,11 @@ def parse_arpwatch_output_loop():
   read_event = False
   skip_newline = True
 
-  for line in fileinput.input(files=args.arpwatch_file):
+  finput = fileinput.input(files=args.arpwatch_file)
+
+  notify_prog_start()
+
+  for line in finput:
     line = line.strip()
 
     if not line:
@@ -104,7 +108,6 @@ example:
   args = parser.parse_args()
   signal.signal(signal.SIGTERM, sig_handler)
   signal.signal(signal.SIGHUP, sig_handler)
-  notify_prog_start()
 
   logging.basicConfig(format='[%(levelname)s] %(message)s', level=logging.DEBUG if args.verbose else logging.INFO)
 
